@@ -1,0 +1,3 @@
+*.pyc
+.theia
+*.sqlite3
