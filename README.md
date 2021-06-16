@@ -2,7 +2,7 @@
 
 Launch a ready-to-code Wagtail development environment with a single click.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wagtail/wagtail-gitpod)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torchbox/yg-category-poc)
 
 Steps:
 
