@@ -12,27 +12,19 @@ class CategoryPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('short_name'),
-        InlinePanel('assigned_virtual_types', label="Assigned virtual types"),
-        InlinePanel('promoted_virtual_types', label="Promoted virtual types"),
+        InlinePanel('virtual_types', label="Virtual types"),
         InlinePanel('trackers', label="Trackers"),
     ]
 
 
-class CategoryAssignedVirtualType(Orderable):
-    page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='assigned_virtual_types')
+class CategoryVirtualType(Orderable):
+    page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='virtual_types')
     virtual_type_id = models.CharField(max_length=255)
+    is_promoted = models.BooleanField(blank=True)
 
     panels = [
         FieldPanel('virtual_type_id', widget=VirtualTypeChooser),
-    ]
-
-
-class CategoryPromotedVirtualType(Orderable):
-    page = ParentalKey(CategoryPage, on_delete=models.CASCADE, related_name='promoted_virtual_types')
-    virtual_type_id = models.CharField(max_length=255)
-
-    panels = [
-        FieldPanel('virtual_type_id', widget=VirtualTypeChooser),
+        FieldPanel('is_promoted'),
     ]
 
 
