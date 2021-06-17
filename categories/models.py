@@ -23,7 +23,7 @@ class CategoryVirtualType(Orderable):
     is_promoted = models.BooleanField(blank=True)
 
     panels = [
-        FieldPanel('virtual_type_id', widget=VirtualTypeChooser),
+        FieldPanel('virtual_type_id', widget=VirtualTypeChooser()),
         FieldPanel('is_promoted'),
     ]
 
@@ -34,6 +34,6 @@ class CategoryTracker(Orderable):
     is_promoted = models.BooleanField(blank=True)
 
     panels = [
-        FieldPanel('tracker_id', widget=TrackerChooser),
+        FieldPanel('tracker_id', widget=TrackerChooser()),
         FieldPanel('is_promoted'),
     ]

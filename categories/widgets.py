@@ -1,6 +1,13 @@
+from functools import lru_cache
 from django.core.exceptions import ObjectDoesNotExist
 import requests
 from generic_chooser.widgets import DRFChooser
+
+@lru_cache
+def get_api_object_list(api_url):
+    print("calling get_object_list for %r" % api_url)
+    return requests.get(api_url).json()
+
 
 class StaticAPIChooser(DRFChooser):
 
@@ -8,7 +15,7 @@ class StaticAPIChooser(DRFChooser):
         return instance[self.name_field]
 
     def get_object_list(self):
-        result = requests.get(self.api_base_url).json()
+        result = get_api_object_list(self.api_base_url)
         return result
 
     def get_instance(self, id):
